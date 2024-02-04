@@ -8,6 +8,8 @@ docker run -d -it --name secret-message devopsdockeruh/simple-web-service:ubuntu
 docker exec -it secret-message bash
 ls
 cat text.log | grep "secret message" -i
+exit
+docker stop secret-message
 ```
 
 ## Message
