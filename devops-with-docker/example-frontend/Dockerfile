@@ -9,6 +9,7 @@ COPY package.json package-lock.json ./
 RUN npm i
 
 COPY . .
+ENV REACT_APP_BACKEND_URL=http://localhost:8080
 RUN npm run build
 
 EXPOSE 5000
