@@ -1,2 +1,1 @@
-# learn-devops
-🧠 🤖
+# 🧠 🤖 learn-devops
