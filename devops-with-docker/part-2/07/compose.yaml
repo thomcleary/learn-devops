@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./database:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+
+  backend:
+    build: ../../example-backend
+    ports:
+      - 8080:8080
+    environment:
+      - REDIS_HOST=redis
+      - POSTGRES_HOST=db
+      - POSTGRES_PASSWORD=secret
+    depends_on:
+      - db
+      - redis
+
+  web:
+    build: ../../example-frontend
+    ports:
+      - 3000:5000
+    depends_on:
+      - backend
