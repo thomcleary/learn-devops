@@ -1,0 +1,10 @@
+services:
+  web:
+    build: ../../example-frontend
+    ports:
+      - 3000:5000
+
+  backend:
+    build: ../../example-backend
+    ports:
+      - 8080:8080
