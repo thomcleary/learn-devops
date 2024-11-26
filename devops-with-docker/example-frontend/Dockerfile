@@ -13,6 +13,8 @@ ARG REACT_APP_BACKEND_URL=http://localhost:8080 # Default for exercises before 2
 ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 RUN npm run build
 
-EXPOSE 5000
+RUN useradd -m appuser
+USER appuser
 
+EXPOSE 5000
 CMD ["serve", "-s", "-l", "5000", "build"]
