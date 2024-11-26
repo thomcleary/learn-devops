@@ -1,6 +1,6 @@
 # From project description "The project might not work with too new Node.js versions"
 # package-lock.json created with npm < 7, which has a different format to current lockfile format
-FROM node:14
+FROM node:14-alpine
 WORKDIR /usr/src/app
 
 RUN npm i -g serve
@@ -13,7 +13,7 @@ ARG REACT_APP_BACKEND_URL=http://localhost:8080 # Default for exercises before 2
 ENV REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
 RUN npm run build
 
-RUN useradd -m appuser
+RUN adduser --system appuser
 USER appuser
 
 EXPOSE 5000
